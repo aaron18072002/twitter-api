@@ -40,7 +40,87 @@ const port = envConfig.PORT || 8000;
 initFolder();
 
 app.get('/', (req, res) => {
-    res.send('Hello word');
+    res.send(`
+    -- Chức năng users
+    // path: /users/login
+    // method: post
+    // body: { email, password }
+
+    // path: /users/oauth/google
+    // method: get
+    // body: { code: string }
+
+    // path: /users/register
+    // method: post
+    // body: { name, email, password, confirm_password, day_of_birth: ISO8601 }
+
+    // path: /users/logout
+    // method: post
+    // body: { refresh_token }
+    // header.Authorization: Bearer <access_token>
+
+    // path: /users/verify-email
+    // method: post
+    // body: { email_verify_token }
+
+    // path: /users/resend-verify-email
+    // method: post
+    // header.Authorization: Bearer <access_token>
+    // body: { }
+
+    // path: /users/forgot-password
+    // method: post
+    // description: Submit email to reset password, sent email to user
+    // body: { email }
+
+    // path: /users/verify-forgot-password
+    // method: post
+    // description: Verify link in email to reset password
+    // body: { forgot-password-token }
+
+    // path: /users/reset-password
+    // method: post
+    // description: Reset password with info form body
+    // body: { forgot-password-token, password, confirm_password }
+
+    // path: /users/me
+    // method: get
+    // description: Get my profile
+    // header: { Authorization: Bearer <access_token> }
+
+    // path: /users/:username
+    // method: get
+    // description: Get user profile
+    // params: { username: string }
+
+    // path: /users/me
+    // method: patch
+    // description: Update my profile
+    // header: { Authorization: Bearer <access_token> }
+    // body: { UserSchema }
+
+    // path: /users/follow
+    // method: post
+    // description: Follow user
+    // header: { Authorization: Bearer <access_token> }
+    // body: { follow_user_id: string }
+
+    // path: /users/:user_id
+    // method: delete
+    // description: Unfollow user
+    // header: { Authorization: Bearer <access_token> }
+
+    // path: /change-password
+    // method: put
+    // description: Change password
+    // header: { Authorization: Bearer <access_token> }
+    // body: { old_password, password, confirm_password }
+
+    // path: /refresh-token
+    // method: post
+    // description: Post refresh token to get new access_token and refresh_token
+    // body: { refresh_token }
+    `);
 });
 
 app.use(bodyParser.json());
