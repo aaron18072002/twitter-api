@@ -33,7 +33,6 @@
         "typescript": "^5.3.3"
     },
     "dependencies": {
-        "@img/sharp-win32-x64": "^0.33.1",
         "@types/cors": "^2.8.17",
         "@types/formidable": "^3.4.5",
         "@types/jsonwebtoken": "^9.0.5",
